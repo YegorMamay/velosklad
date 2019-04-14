@@ -1,0 +1,108 @@
+.nav {
+    background-color: $themeColorThree;
+    margin-bottom: 15px;
+
+    .menu {
+        display: table;
+        width: 100%;
+        max-width: 1170px;
+        margin: 0 auto;
+        padding: 0 15px;
+        list-style: none;
+
+        &-item {
+            display: table-cell;
+            border-right: 1px solid #fff;
+
+            &:first-child {
+                border-left: 1px solid #fff;
+            }
+
+            &-has-children {
+                position: relative;
+            }
+
+            &:hover,
+            &-current {
+                .menu-link {
+                    background-color: $themeColorTwo;
+                    color: #fff;
+                }
+            }
+
+            &:hover {
+                > .sub-menu {
+                    display: block;
+                }
+            }
+        }
+
+        &-link {
+            display: block;
+            padding: 18px 5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+        }
+    }
+
+    .sub-menu {
+        @extend %reset-list;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 9999;
+        min-width: 220px;
+        width: 100%;
+        background-color: $themeColorThree;
+
+        &-item {
+
+            &-has-children {
+                position: relative;
+            }
+
+            &:hover,
+            &-current {
+                > .sub-menu-link {
+                    background-color: $themeColorTwo;
+                    color: #fff;
+                }
+            }
+
+            &:hover {
+                > .sub-menu {
+                    display: block;
+                }
+            }
+        }
+
+        &-link {
+            display: block;
+            padding: 10px 15px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .sub-menu {
+            top: 0;
+            left: 100%;
+        }
+    }
+}
+
+//xs 544
+@media #{$mobile} {
+    .nav {
+        display: none;
+    }
+}
+
+//sm 545 - 768
+@media #{$tablet} {
+    .nav {
+        display: none;
+    }
+}

@@ -1,0 +1,24 @@
+#menu-second-menu {
+    display: flex;
+    justify-content: space-around;
+    
+    li {
+        a {
+            color: white;
+        }
+    }
+}
+
+//xs 544
+@media #{$mobile} {
+    #menu-second-menu {
+        display: none;
+    }
+}
+
+//sm 545 - 768
+@media #{$tablet} {
+    #menu-second-menu {
+        display: none;
+    }
+}
