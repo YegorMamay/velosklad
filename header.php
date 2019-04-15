@@ -81,7 +81,7 @@
                     } ?>
                 </div>
                 <div class="header-item text-uppercase text-center">
-                    <b><?php _e('График работы:', 'brainworks'); ?></b>
+                    <span class="bold"><?php _e('График работы:', 'brainworks'); ?></span>
                     <br>
                     <?php _e('вс-чт с 11.00-19.00 пт с 11.00-17.00', 'brainworks'); ?>
                 </div>
