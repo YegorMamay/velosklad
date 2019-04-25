@@ -299,6 +299,22 @@ function brainworks_customize_register( $wp_customize ) {
     'settings'    => 'bw_login_logo',
   ) ) );
 
+    // Section Additional
+    $wp_customize->add_section('bw_additional', array(
+        'title' => 'Additional',
+        //'description' => 'Additional options',
+        'panel' => 'bw_theme_options',
+    ));
+
+    $wp_customize->add_setting('bw_additional_work_schedule', array('default' => ''));
+
+    $wp_customize->add_control('bw_additional_work_schedule', array(
+        'label' => 'Work Schedule',
+        'section' => 'bw_additional',
+        'settings' => 'bw_additional_work_schedule',
+        'type' => 'textarea',
+    ));
+
 }
 
 add_action( 'customize_register', 'brainworks_customize_register' );

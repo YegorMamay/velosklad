@@ -83,7 +83,7 @@
                 <div class="header-item text-uppercase text-center">
                     <span class="bold"><?php _e('График работы:', 'brainworks'); ?></span>
                     <br>
-                    <?php _e('вс-чт с 11.00-19.00 пт с 11.00-17.00', 'brainworks'); ?>
+                    <?php echo get_theme_mod('bw_additional_work_schedule', 'вс-чт с 11.00-19.00 пт с 11.00-17.00'); ?>
                 </div>
                 <div class="header-item text-right">
                     <button class="button-medium text-nowrap js-callback"><?php _e('Обратный звонок', 'brainworks'); ?></button>
