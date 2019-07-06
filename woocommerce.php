@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php if (function_exists('kama_breadcrumbs')) kama_breadcrumbs(' » '); ?>
+
 <div class="row">
     <?php if(!is_single()) : ?>
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">

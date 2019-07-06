@@ -13,7 +13,9 @@ if (!function_exists('kama_breadcrumbs')) {
    */
   function kama_breadcrumbs($sep = ' » ', $l10n = array(), $args = array()) {
     $kb = new Kama_Breadcrumbs;
-    echo $kb->get_crumbs($sep, $l10n, $args);
+    $kb_to_echo = $kb->get_crumbs($sep, $l10n, $args);
+    $kb_to_echo = str_replace('Главная', 'Интернет магазин Велосклад', $kb_to_echo);
+    echo $kb_to_echo;
   }
 }
 
@@ -44,7 +46,7 @@ if (!class_exists('Kama_Breadcrumbs')) {
       'on_front_page' => true,  // выводить крошки на главной странице
       'show_post_title' => true,  // показывать ли название записи в конце (последний элемент). Для записей, страниц, вложений
       'show_term_title' => true,  // показывать ли название элемента таксономии в конце (последний элемент). Для меток, рубрик и других такс
-      'title_patt' => '<span class="kb_title">%s</span>', // шаблон для последнего заголовка. Если включено: show_post_title или show_term_title
+      'title_patt' => '<a href="[curr_uri]" class="kb_title" style="pointer-events: none;">%s</a>', // шаблон для последнего заголовка. Если включено: show_post_title или show_term_title
       'last_sep' => true,  // показывать последний разделитель, когда заголовок в конце не отображается
       'markup' => 'schema.org', // 'markup' - микроразметка. Может быть: 'rdf.data-vocabulary.org', 'schema.org', '' - без микроразметки
       // или можно указать свой массив разметки:
@@ -79,10 +81,10 @@ if (!class_exists('Kama_Breadcrumbs')) {
 
       // микроразметка ---
       if (1) {
-        $mark = &$arg->markup;
+        // $mark = &$arg->markup;
 
         // Разметка по умолчанию
-        if (!$mark) $mark = array(
+        if (!isset($mark) || !$mark) $mark = array(
           'wrappatt' => '<div class="kama_breadcrumbs">%s</div>',
           'linkpatt' => '<a href="%s">%s</a>',
           'sep_after' => '',
@@ -342,7 +344,11 @@ if (!class_exists('Kama_Breadcrumbs')) {
 
     // добалвяет заголовок к переданному тексту, с учетом всех опций. Добавляет разделитель в начало, если надо.
     function _add_title($add_to, $obj, $term_title = '') {
+
+      $curr_uri = "https://velosklad.com.ua".$_SERVER['REQUEST_URI'];
+
       $arg = &$this->arg; // упростим...
+
       $title = $term_title ? $term_title : esc_html($obj->post_title); // $term_title чиститься отдельно, теги моугт быть...
       $show_title = $term_title ? $arg->show_term_title : $arg->show_post_title;
 
@@ -360,6 +366,7 @@ if (!class_exists('Kama_Breadcrumbs')) {
       elseif ($show_title)
         $add_to = sprintf($arg->title_patt, $title);
 
+      $add_to = str_replace('[curr_uri]', $curr_uri, $add_to);
       return $add_to;
     }
 

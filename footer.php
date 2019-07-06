@@ -13,7 +13,17 @@
 
     <div class="copyright">
       <p class="container">
-        <?php _e('Developed by', 'brainworks') ?> <a href="https://brainworks.pro/" target="_blank">BRAIN WORKS</a> &copy; 2017
+        <a href="/sitemap/" class="sitemap_href">Карта сайта</a>
+        <noindex>
+        <?php _e('Developed by', 'brainworks') ?> <a rel="nofollow" href="https://brainworks.pro/" target="_blank">BRAIN WORKS</a> &copy; 2017
+        </noindex>
+        <span xmlns:v="http://rdf.data-vocabulary.org/#" style="margin-left: 80px">
+          <span typeof="v:Breadcrumb">
+          <a href="https://velosklad.com.ua/" rel="v:url" property="v:title">Интернет-магазин Велосклад</a> ›› </span>
+          <span typeof="v:Breadcrumb">
+          <a href="https://velosklad.com.ua/#Велосипеды" rel="v:url" property="v:title">Велосипеды</a>
+          </span>
+        </span>
       </p>
     </div>
   </footer>

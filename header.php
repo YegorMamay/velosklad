@@ -49,12 +49,15 @@
           ) ); ?>
         </nav>                
                     </div>
-                    <div class="col-xs-12 col-md-2 text-right header-social">
+                    <div class="col-xs-12 col-md-2 text-right header-social" itemscope itemtype="http://schema.org/Organization">
+                        <link itemprop="url" href="https://velosklad.com.ua/">
                         <ul class="social">
-                            <li class="social-item"><a href="https://www.facebook.com/velosklad.kiev/" class="social-link" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a href="https://www.instagram.com/velosklad.com.ua/" class="social-link" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <!--<li class="social-item"><a href="#" class="social-link" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>-->
-                            <li class="social-item"><a href="https://www.youtube.com/channel/UCwBdeE_8KaaTtHEHZdItYxg" class="social-link" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            <noindex>
+                                <li class="social-item"><a itemprop="sameAs" rel="nofollow" href="https://www.facebook.com/velosklad.kiev/" class="social-link" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li class="social-item"><a itemprop="sameAs" rel="nofollow" href="https://www.instagram.com/velosklad.com.ua/" class="social-link" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <!--<li class="social-item"><a href="#" class="social-link" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>-->
+                                <li class="social-item"><a itemprop="sameAs" rel="nofollow" href="https://www.youtube.com/channel/UCwBdeE_8KaaTtHEHZdItYxg" class="social-link" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            </noindex>
                         </ul>
                     </div>
                 </div>
