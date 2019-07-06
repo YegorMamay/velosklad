@@ -97,6 +97,11 @@ form.form-inline {
 [type='date'],
 [type='datetime-local'],
 [type='time'],
-select {
+select,
+textarea {
     @extend %form-field-style;
+}
+
+textarea {
+    font-family: inherit;
 }

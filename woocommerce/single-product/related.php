@@ -11,81 +11,38 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
  * @package 	WooCommerce/Templates
  * @version     3.0.0
  */
+
 if ( ! defined( 'ABSPATH' ) ) {
-exit; // Exit if accessed directly
+	exit;
 }
+/**
+ * @var WC_Product $related_product
+ * @var array $related_products
+ */
+if ( $related_products ) : ?>
 
-global $product, $woocommerce_loop;
+    <section class="related products">
 
-if ( empty( $product ) || ! $product->exists() ) {
-return;
-}
+		<?php woocommerce_product_loop_start(); ?>
 
-$related = $product->get_related( $posts_per_page );
+		<?php foreach ( $related_products as $related_product ) : ?>
 
-if ( sizeof( $related ) == 0 ) return;
+			<?php
+			$post_object = get_post( $related_product->get_id() );
 
-foreach (get_the_terms( $product->id, 'product_cat' ) as $cat){
-if($cat->parent == 0){
-$mama = $cat->term_id;
-foreach (get_the_terms( $product->id, 'product_cat' ) as $cat2){
-if($cat2->parent == $cat->term_id){
-$child = $cat2->term_id;
-break;
-}
-}
-break;
-}
-}
-$args = array(
-'orderby'=>'rand',
-'tax_query' => array(
-array(
-'taxonomy' => 'product_cat',
-'terms' => $child,
-include_children => false
-)
-)
-);
-$childprod = new WP_Query( $args );
-$arr = array();
-foreach ($childprod->posts as $pid){
-array_push($arr, $pid->ID);
+			setup_postdata( $GLOBALS['post'] =& $post_object );
 
-}
+			wc_get_template_part( 'content', 'product' ); ?>
 
-$args = apply_filters( 'woocommerce_related_products_args', array(
-'post_type' => 'product',
-'ignore_sticky_posts' => 1,
-'no_found_rows' => 1,
-'posts_per_page' => $posts_per_page,
-'orderby' => $orderby,
-'post__in' => $arr,
-'post__not_in' => array( $product->id )
-) );
+		<?php endforeach; ?>
 
-$products = new WP_Query( $args );
+		<?php woocommerce_product_loop_end(); ?>
 
-$woocommerce_loop['columns'] = $columns;
+    </section>
 
-if ( $products->have_posts() ) : ?>
-<div class=»related products»>
-
-<?php woocommerce_product_loop_start(); ?>
-
-<?php while ( $products->have_posts() ) : $products->the_post(); ?>
-
-<?php wc_get_template_part( 'content', 'product' ); ?>
-
-<?php endwhile; // end of the loop. ?>
-
-<?php woocommerce_product_loop_end(); ?>
-
-</div>
 <?php endif;
 
 wp_reset_postdata();
