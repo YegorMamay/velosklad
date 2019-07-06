@@ -10,9 +10,8 @@ License URI:
 Version: 1.3
 Tags: one-column, two-columns, full-width-template, e-commerce
 */
-
 /* CORE */
-@import "core/reset"; 
+@import "core/reset";
 @import "core/mediaqueries";
 @import "core/variables";
 @import "core/mixins";
@@ -22,24 +21,20 @@ Tags: one-column, two-columns, full-width-template, e-commerce
 @import "core/help-style";
 //@import "core/theme-style";
 @import "core/woo-variables";
-
 /* PLUG-INs */
 @import "plugins/font-awesome";
 //@import "plugins/plug-ins";
 @import "plugins/animations";
 @import "plugins/slick";
-
 /* BOOTSTRAP */
 @import "bootstrap/bootstrap-grid";
 @import "bootstrap/bootstrap-tables";
 //@import "bootstrap/bootstrap-embded";
-
 /* PAGES */
 @import "pages/single-post";
 @import "pages/blog-page";
 @import "pages/woo";
 @import "pages/reviews";
-
 /* ELEMENTS */
 @import "elements/typography";
 @import "elements/responsive-titles";
@@ -56,7 +51,6 @@ Tags: one-column, two-columns, full-width-template, e-commerce
 @import "elements/dividers";
 //@import "elements/other";
 //@import "elements/icons";
-
 /* BLOCKS */
 @import "blocks/header";
 @import "blocks/footer";
@@ -64,22 +58,21 @@ Tags: one-column, two-columns, full-width-template, e-commerce
 @import "blocks/sidebar";
 @import "blocks/menu-second";
 
-
 html {
     @include box-sizing(border-box);
 }
 
 * {
-	&,
-	&:before,
-	&:after {
-		@include box-sizing(inherit);
-	}
+    &,
+    &::before,
+    &::after {
+        @include box-sizing(inherit);
+    }
 }
 
 html,
 body {
-  height: 100%;
+    height: 100%;
 }
 
 body {
@@ -98,29 +91,29 @@ body {
     min-height: 100%;
 }
 
-strong,
-b {
-	font-weight: bold;
+b,
+strong {
+    font-weight: bold;
 }
 
 img {
-	display: inline-block;
-	vertical-align: middle;
-	max-width: 100%;
-	height: auto;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
 }
 
 .container {
-	position: relative;
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	@extend %clearfix;
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    @extend %clearfix;
 
-	@media only screen and (min-width: 1200px) {
-		width: 1170px;
-	}
+    @media only screen and (min-width: 1200px) {
+        width: 1170px;
+    }
 }
 
 .kama_breadcrumbs {
@@ -128,9 +121,10 @@ img {
     font-size: 14px;
     margin-bottom: 15px;
 }
+
 h1.page-title {
-	text-align:center;
-	margin-bottom:25px;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
 .page-name {
@@ -141,7 +135,7 @@ h1.page-title {
 .page-404 {
     height: 70vh;
     background: url('img/404.jpg') no-repeat center bottom;
-    
+
     //xs 544
     @media #{$mobile} {
         background: none;
@@ -152,10 +146,11 @@ h1.page-title {
         background: none;
     }
 }
- 
 
- /**********************************************************/
-.thumbnails.slider   img {
+/**********************************************************/
+.thumbnails.slider img {
     height: 100px !important;
     width: auto !important;
 }
+
+@import "seo-shiled";

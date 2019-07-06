@@ -5352,7 +5352,7 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*, *::before, *::after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
@@ -5378,8 +5378,8 @@ body {
   min-height: 100%;
 }
 
-strong,
-b {
+b,
+strong {
   font-weight: bold;
 }
 
@@ -5441,6 +5441,32 @@ h1.page-title {
 .thumbnails.slider img {
   height: 100px !important;
   width: auto !important;
+}
+
+.dg_seo_text {
+  margin-top: 15px;
+}
+
+.sitemap_lvl2_ul,
+.sitemap_lvl3_ul,
+.sitemap_lvl4_ul {
+  list-style-type: disc;
+}
+
+.sitemap_lvl2_ul {
+  margin-left: 20px;
+}
+
+.sitemap_lvl3_ul {
+  margin-left: 40px;
+}
+
+.sitemap_lvl4_ul {
+  margin-left: 60px;
+}
+
+.sitemap_href {
+  float: left;
 }
 
 /*# sourceMappingURL=style.css.map */
