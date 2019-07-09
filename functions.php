@@ -69,3 +69,10 @@ function woo_1_end() {
 add_action( 'woocommerce_archive_description', 'woo_1_end',  36); 
 
 */
+
+remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+
+function bw_woocommerce_template_loop_product_title() {
+	echo '<div class="' . esc_attr( apply_filters( 'woocommerce_product_loop_title_classes', 'h3 woocommerce-loop-product__title' ) ) . '">' . get_the_title() . '</div>';
+}
+add_action( 'woocommerce_shop_loop_item_title', 'bw_woocommerce_template_loop_product_title', 10 );
